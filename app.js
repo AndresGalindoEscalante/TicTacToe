@@ -43,6 +43,10 @@ a.innerHTML = 'Me llamo Sergio';
  * 
  * [0] ---> etiqueta de la linea 16 en HTML
  * [1] ---> etiqueta de la linea 18 en HTML
+ * 
+ * 
+ * 
+ * 
  */
 
 console.log(b[0].innerHTML);
