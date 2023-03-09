@@ -46,7 +46,6 @@ a.innerHTML = 'Me llamo Sergio';
  * 
  * 
  * 
- * 
  */
 
 console.log(b[0].innerHTML);
