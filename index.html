@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        p {
-            border: 1px solid black;
-            padding: 15px;
+        .linea {
+            background-color: gainsboro;
+            border-radius: 10px;
         }
 
         .error {
@@ -24,13 +24,25 @@
             font-size: xx-large;
         }
 
+        button{
+            font-size: x-large;
+        }
+
         .tablero {
             display: flex;
             flex-wrap: wrap;
-            border: 1px solid black;
-            gap: 5px;
-            height: 620px;
-            width: 620px;
+            height: auto;
+            width: 604px;
+            border-radius: 10px;
+            margin: 100px;
+
+            /*Esto es para hacer que el texto dentro de las casillas no se pueda seleccionar*/
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .casilla {
@@ -38,26 +50,121 @@
             height: 200px;
             width: 200px;
             font-size: 200px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
         }
 
-       
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        #centro {
+            gap: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px;
+        }
 
+        #marcadorX {
+            border: 1px solid green;
+            border-radius: 10px;
+            height: 100px;
+            text-align: center;
+            padding: 10px;
+
+        }
+
+        #marcadorX p {
+            border: none;
+        }
+
+        #marcadorO {
+            border: 1px solid green;
+            height: 100px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+
+        #marcadorO p {
+            border: none;
+
+        }
+
+        p {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #ganar {
+            border: 1px solid black;
+            border-radius: 10px;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .uno {
+            border-top: none;
+            border-left: none;
+        }
+
+        .dos {
+            border-top: none;
+        }
+
+        .tres {
+            border-top: none;
+            border-right: none;
+        }
+
+        .cuatro {
+            border-left: none;
+        }
+
+        .seis {
+            border-right: none;
+        }
+
+        .siete {
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .ocho {
+            border-bottom: none;
+        }
+
+        .nueve {
+            border-bottom: none;
+            border-right: none;
+        }
     </style>
 </head>
 
 <body>
-    <main >
-        <div class="tablero">
-            <div class="casilla" onclick="agregarFicha(0)"></div>
-            <div class="casilla" onclick="agregarFicha(1)"></div>
-            <div class="casilla" onclick="agregarFicha(2)"></div>
-            <div class="casilla" onclick="agregarFicha(3)"></div>
-            <div class="casilla" onclick="agregarFicha(4)"></div>
-            <div class="casilla" onclick="agregarFicha(5)"></div>
-            <div class="casilla" onclick="agregarFicha(6)"></div>
-            <div class="casilla" onclick="agregarFicha(7)"></div>
-            <div class="casilla" onclick="agregarFicha(8)"></div>
+    <main>
+        <div id="turno"></div>
+        <div id="centro">
+            <div id="marcadorX">Marcador X</div>
+            <div id="marcadorO">Marcador O</div>
+            <div class="tablero">
+                <div class="casilla uno" onclick="agregarFicha(0);"></div>
+                <div class="casilla dos" onclick="agregarFicha(1)"></div>
+                <div class="casilla tres" onclick="agregarFicha(2)"></div>
+                <div class="casilla cuatro" onclick="agregarFicha(3)"></div>
+                <div class="casilla cinco" onclick="agregarFicha(4)"></div>
+                <div class="casilla seis" onclick="agregarFicha(5)"></div>
+                <div class="casilla siete" onclick="agregarFicha(6)"></div>
+                <div class="casilla ocho" onclick="agregarFicha(7)"></div>
+                <div class="casilla nueve" onclick="agregarFicha(8)"></div>
+            </div>
         </div>
     </main>
 </body>
