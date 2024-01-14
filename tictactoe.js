@@ -10,7 +10,7 @@
 let casillas = document.getElementsByClassName("casilla");
 let main = document.getElementsByTagName('main')[0];
 let turno = true;
-let posX = [];
+
 let posO = [];
 /**
  * Creamos un array con arrays que contienen todas las combinaciones ganadoras
@@ -81,6 +81,7 @@ p.textContent = 'Turno de las X';
 main.insertBefore(p, first);
 
 function agregarFicha(numero) {
+
     console.log('Has hecho un click en la casilla ' + numero)
 
     /**
@@ -95,7 +96,7 @@ function agregarFicha(numero) {
         p.textContent = 'Turno de las O';
 
         main.insertBefore(p, first);
-        posX.push(numero);
+        
     } else {
         casillas[numero].textContent = 'O';
         turno = true;
@@ -125,18 +126,19 @@ function ganador() {
     let casilla2;
     let continuar = true;
 
-    botonReset.setAttribute('onClick', 'reset');
-    botonReset.textContent='Resetear Tablero';
+    botonReset.addEventListener('click', reset);
+    botonReset.textContent = 'Resetear Tablero';
 
     for (combinacion in combinacionesGanadoras) {
 
         casilla0 = combinacionesGanadoras[combinacion][0];
         casilla1 = combinacionesGanadoras[combinacion][1];
         casilla2 = combinacionesGanadoras[combinacion][2];
+
         if (!turno) {
             if (casillas[casilla0].textContent == 'X' && casillas[casilla1].textContent == 'X' && casillas[casilla2].textContent == 'X') {
                 ganar.textContent = 'Han ganado las X';
-                console.log(combinacionesGanadoras[combinacion][0]);
+
                 divGanar.appendChild(ganar);
                 divGanar.appendChild(botonReset);
                 main.appendChild(divGanar);
@@ -146,7 +148,7 @@ function ganador() {
         } else {
             if (casillas[casilla0].textContent == 'O' && casillas[casilla1].textContent == 'O' && casillas[casilla2].textContent == 'O') {
                 ganar.textContent = 'Han ganado las O';
-                console.log(combinacionesGanadoras[combinacion][0]);
+
                 divGanar.appendChild(ganar);
                 divGanar.appendChild(botonReset);
                 main.appendChild(divGanar);
@@ -164,9 +166,29 @@ function ganador() {
 
 
 function pararJuego() {
+    let contador = 0;
     for (casilla in casillas) {
-        casillas[casilla].removeAttribute('onclick');
+
+        if (contador < 9) {
+            casillas[casilla].removeAttribute('onclick');
+        }
+        contador++;
     }
+}
+
+function reset() {
+
+    let contador = 0;
+    for (casilla in casillas) {
+        if (contador < 9) {
+            let a=contador;
+            casillas[casilla].textContent='';
+            casillas[casilla].addEventListener('click',  function(){ agregarFicha(a); });
+        }
+
+        contador++;
+    }
+    console.log(contador);
 }
 
 /**
